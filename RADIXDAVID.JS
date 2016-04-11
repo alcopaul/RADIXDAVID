@@ -1,14 +1,17 @@
+var lib = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ/-+*";
+//note: length of lib must be equal to the base
 var wsh = new ActiveXObject("WScript.Shell");
 //begin input values here
-var num = 1600;
+var num = 153;
 var bsx = 40;
 //end input values here
-wsh.Popup(reverse(erx(num, bsx)));
-function erx(str, bac)
+var resx = reverse(erx(num, bsx, lib));
+wsh.Popup(resx);
+wsh.Popup(xres(resx, bsx, lib));
+//convert decimal to any base
+function erx(str, bac, lib)
 {
 var res = "";
-var lib = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ/-+*";
-// note: lib.length must be equal to base
 if (str == 0)
 {
 return "0";
@@ -18,6 +21,16 @@ for (var i = str; 0 < i; i = Math.floor(i / bac))
 res += lib.substr((i % bac), 1);
 }
 return res;
+}
+//convert anybase to decimal
+function xres(rts, bsx, lib)
+{
+var result = 0;
+for (var i = 0; i < rts.length; i++)
+{
+result += lib.indexOf(rts.substr(i,1)) * Math.pow(bsx, ((rts.length - 1) - i));
+}
+return result;
 }
 function reverse(s)
 {
