@@ -1,27 +1,23 @@
 var wsh = new ActiveXObject("WScript.Shell");
-var yourNumber = 153;
-var hexString = eb64(yourNumber);
-wsh.Popup(reverse(hexString));
-function eb64(str)
+//begin input values here
+var num = 1600;
+var bsx = 40;
+//end input values here
+wsh.Popup(reverse(erx(num, bsx)));
+function erx(str, bac)
 {
-var result = "";
-var lib64 = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ/-+*";
+var res = "";
+var lib = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ/-+*";
+// note: lib.length must be equal to base
 if (str == 0)
 {
 return "0";
 }
-for (var i = str; 0 < i; i = Math.floor(i / 40)) 
+for (var i = str; 0 < i; i = Math.floor(i / bac)) 
 {
-if (i % 40 >= 40)
-{
-result += lib64.substr((40 - (i % 40)), 1);
+res += lib.substr((i % bac), 1);
 }
-else
-{
-result += lib64.substr((i % 40), 1);
-}
-}
-return result;
+return res;
 }
 function reverse(s)
 {
