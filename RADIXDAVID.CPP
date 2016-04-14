@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -37,4 +38,4 @@ int main()
 	char c = getchar();
 	return 0;
 }
-/* RADIX DAVID by VP7O[NIHFEX] 04/11/2016 */
+/* RADIX DAVID by VP7O[NIHFEX] 04/14/2016 */
